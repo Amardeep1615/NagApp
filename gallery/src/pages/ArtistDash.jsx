@@ -1,27 +1,33 @@
 import React from "react";
-import { useArts } from "../context/ArtContext";
+import { useArt } from "../context/artContextUtils";
+import { Star } from "lucide-react";
 
 export default function ArtistDashboard() {
-  const { arts, deleteArt } = useArts();
+  const { artworks } = useArt();
+  const artistArts = artworks.filter((a) => a.artist === "Nani");
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-semibold mb-4">Artist Dashboard (Demo)</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {arts.map((a) => (
-          <div key={a.id} className="bg-white p-4 rounded shadow">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="font-semibold">{a.title}</div>
-                <div className="text-xs text-gray-500">{a.artist}</div>
-              </div>
-              <div>
-                <button className="px-3 py-1 bg-red-500 text-white rounded" onClick={() => deleteArt(a.id)}>Delete</button>
+    <div className="max-w-6xl mx-auto mt-16 px-5">
+      <h1 className="text-3xl font-bold text-indigo-600 mb-6">🎨 Nani’s Dashboard</h1>
+
+      {artistArts.length === 0 ? (
+        <p className="text-gray-500 text-center">No artworks uploaded yet.</p>
+      ) : (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {artistArts.map((art) => (
+            <div key={art.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:scale-105 transform transition">
+              <img src={art.image} alt={art.title} className="w-full h-48 object-cover" />
+              <div className="p-4">
+                <h2 className="font-semibold text-lg text-indigo-600">{art.title}</h2>
+                <p className="text-gray-500">💰 ₹{art.price}</p>
+                <p className="flex items-center gap-1 text-yellow-500">
+                  <Star size={16} /> {art.ratings}/5
+                </p>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

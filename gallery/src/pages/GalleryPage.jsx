@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import ArtCard from "../components/ArtCard";
+import { useArt } from "../context/artContextUtils";
+import DownloadButton from "../components/DownloadButton";
+import UploadForm from "../components/UploadForm";
 
 export default function GalleryPage() {
- 
-  const [q, setQ] = useState("");
-
+  const { artworks } = useArt();
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4 flex justify-between items-center">
-        <h2 className="text-2xl font-semibold">Gallery</h2>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by title or tag" className="p-2 border rounded" />
-      </div>
-     
+    <div className="grid md:grid-cols-3 gap-6 p-6">
+      {artworks.length ? (
+        artworks.map((a) => <ArtCard key={a.id} art={a} />)
+      ) : (
+        <div className="text-center text-gray-500 col-span-3">
+          No artworks yet. Try uploading one!
+        </div>
+      )}
+      <UploadForm/>
+       <ArtCard/>
+       <DownloadButton/>
+
     </div>
   );
 }

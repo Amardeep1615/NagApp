@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar/>
-      <main className="flex-1 bg-gradient-to-b from-pink-50 via-white to-blue-50">
+      <main className="flex-1 bg-linear-to-b from-pink-50 via-white to-blue-50">
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/gallery" element={<GalleryPage/>} />

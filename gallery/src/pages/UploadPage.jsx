@@ -1,71 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import UploadForm from "../components/UploadForm";
+import { CloudUpload } from "lucide-react";
 
-const UploadForm = () => {
-  const [file, setFile] = useState(null);
-  const [message, setMessage] = useState("");
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!file) {
-      setMessage("Please select a file to upload!");
-      return;
-    }
-    setMessage(`✅ File "${file.name}" uploaded successfully!`);
-  };
-
+export default function UploadPage() {
   return (
-    <div
-      style={{
-        background: "linear-gradient(135deg, #6a11cb, #2575fc)",
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-      }}
-    >
-      <div
-        style={{
-          background: "white",
-          color: "#333",
-          padding: "30px",
-          borderRadius: "12px",
-          boxShadow: "0px 4px 12px rgba(0,0,0,0.2)",
-          width: "400px",
-          textAlign: "center",
-        }}
-      >
-        <h2>📤 Upload Image</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            style={{ margin: "20px 0" }}
-          />
-          <br />
-          <button
-            type="submit"
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#2575fc",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-            }}
-          >
-            Upload
-          </button>
-        </form>
-        {message && <p style={{ marginTop: "20px" }}>{message}</p>}
-      </div>
+    <div className="max-w-4xl mx-auto mt-16 px-5 py-10 bg-white rounded-2xl shadow-xl relative overflow-hidden">
+      {/* Decorative Blur */}
+      <div className="absolute -top-10 -left-10 w-32 h-32 bg-pink-300 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-yellow-300 opacity-20 blur-3xl rounded-full"></div>
+
+      <h2 className="text-3xl font-bold mb-6 text-indigo-600 flex items-center gap-2">
+        <CloudUpload size={28} /> Upload Your Artwork
+      </h2>
+      <p className="text-gray-500 mb-8">
+        Share your creativity with the world. Upload your paintings, photographs, or digital art here.
+      </p>
+
+      <UploadForm />
     </div>
   );
-};
-
-export default UploadForm;
+}

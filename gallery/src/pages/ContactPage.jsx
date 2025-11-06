@@ -1,20 +1,53 @@
 import React, { useState } from "react";
 
 export default function ContactPage() {
-  const [msg, setMsg] = useState("");
-  const send = (e) => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Message sent (demo): " + msg);
-    setMsg("");
+    setSent(true);
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-semibold">Contact</h2>
-      <form onSubmit={send} className="mt-4 bg-white p-4 rounded shadow space-y-3">
-        <textarea value={msg} onChange={(e) => setMsg(e.target.value)} className="w-full p-2 border rounded" placeholder="Your message to TMK / Nani" />
-        <button className="px-4 py-2 bg-indigo-600 text-white rounded">Send</button>
-      </form>
+    <div className="max-w-md mx-auto mt-10 bg-white shadow-lg p-6 rounded-lg">
+      <h2 className="text-2xl font-bold text-indigo-600 mb-4">Contact Us</h2>
+      {sent ? (
+        <div className="text-green-600 font-semibold">
+          ✅ Message sent successfully!
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label className="block mb-2 font-semibold">Name</label>
+          <input
+            type="text"
+            className="border w-full p-2 mb-3 rounded"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+          <label className="block mb-2 font-semibold">Email</label>
+          <input
+            type="email"
+            className="border w-full p-2 mb-3 rounded"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+          />
+          <label className="block mb-2 font-semibold">Message</label>
+          <textarea
+            className="border w-full p-2 mb-3 rounded"
+            rows="4"
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+          ></textarea>
+
+          <button
+            type="submit"
+            className="bg-indigo-600 text-white px-4 py-2 rounded w-full hover:bg-indigo-700"
+          >
+            Send
+          </button>
+        </form>
+      )}
     </div>
   );
 }

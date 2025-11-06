@@ -1,11 +1,15 @@
 import React from "react";
+import { Star } from "lucide-react";
 
-export default function RatingStars({ ratings = [] }) {
-  const avg = ratings.length ? (ratings.reduce((s, r) => s + r.stars, 0) / ratings.length).toFixed(1) : "—";
+export default function RatingStars({ ratings = 4 }) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="text-yellow-500">{avg === "—" ? "—" : "★"} </div>
-      <div className="text-sm text-gray-600">{avg}</div>
+    <div className="flex text-yellow-400">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className={`w-4 h-4 ${i < ratings ? "fill-yellow-400" : "fill-gray-300"}`}
+        />
+      ))}
     </div>
   );
 }
