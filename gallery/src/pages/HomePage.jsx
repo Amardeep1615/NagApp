@@ -13,21 +13,21 @@ export default function HomePage() {
   const featuredArts = [
     {
       id: 1,
-      title: "Sunset Bliss",
+      title: "Mahesh Babu",
       artist: "Nani",
-      image: "https://source.unsplash.com/600x400/?painting",
+      image: "Mahesh.jpg",
     },
     {
       id: 2,
-      title: "Urban Dreams",
-      artist: "Ravi",
-      image: "https://source.unsplash.com/601x400/?artwork",
+      title: "Ms Dhoni",
+      artist: "Nani",
+      image: "Ms Dhoni.jpg",
     },
     {
       id: 3,
-      title: "Golden Fields",
-      artist: "Megha",
-      image: "https://source.unsplash.com/602x400/?nature,art",
+      title: "Thalaiva",
+      artist: "Nani",
+      image: "Thailava.jpg",
     },
   ];
 
