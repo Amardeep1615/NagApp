@@ -8,6 +8,7 @@ import TicketPage from "./TicketPage";
 import PaymentPage from "./PaymentPage";
 import ArtistDashboard from "./ArtistDash";
 import AdminDashboard from "./AdminDashboard";
+import GalleryPage from "./GalleryPage";
 
 export default function HomePage() {
   const featuredArts = [
@@ -109,7 +110,8 @@ export default function HomePage() {
         <section className="bg-white  border-gray-200"><PaymentPage/></section>
         <section className="bg-white  border-gray-200"><ArtistDashboard/></section>
         <section className="bg-white  border-gray-200"><AdminDashboard/></section>
-        <section></section>
+        <section><GalleryPage/></section>
+
 
       
       
