@@ -103,12 +103,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-        <section className="bg-white py-20 border-t border-gray-200"><UploadPage/></section>
-        <section className="bg-white py-20 border-t border-gray-200"><ArtDetailPage/></section>
-        <section className="bg-white py-20 border-t border-gray-200"><TicketPage/></section>
-        <section className="bg-white py-20 border-t border-gray-200"><PaymentPage/></section>
-        <section className="bg-white py-20 border-t border-gray-200"><ArtistDashboard/></section>
-        <section className="bg-white py-20 border-t border-gray-200"><AdminDashboard/></section>
+        <section className="bg-white  border-gray-200"><UploadPage/></section>
+        <section className="bg-white  border-gray-200"><ArtDetailPage/></section>
+        <section className="bg-white  border-gray-200"><TicketPage/></section>
+        <section className="bg-white  border-gray-200"><PaymentPage/></section>
+        <section className="bg-white  border-gray-200"><ArtistDashboard/></section>
+        <section className="bg-white  border-gray-200"><AdminDashboard/></section>
+        <section></section>
 
       
       
