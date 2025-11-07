@@ -5,7 +5,6 @@ import ArtCard from "../components/ArtCard";
 import UploadPage from "./UploadPage";
 import ArtDetailPage from "./ArtDetailPage";
 import TicketPage from "./TicketPage";
-import PaymentPage from "./PaymentPage";
 import ArtistDashboard from "./ArtistDash";
 import AdminDashboard from "./AdminDashboard";
 import GalleryPage from "./GalleryPage";
@@ -113,26 +112,8 @@ export default function HomePage() {
         </div>
       </section>
       
-      {/* Payment Section */}
-      <section className="bg-gray-50 py-16 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <PaymentPage />
-        </div>
-      </section>
-      
-      {/* Artist Dashboard */}
-      <section className="bg-white py-16 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <ArtistDashboard />
-        </div>
-      </section>
-      
-      {/* Admin Dashboard */}
-      <section className="bg-gray-50 py-16 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <AdminDashboard />
-        </div>
-      </section>
+    
+     
     </div>
   );
 }
