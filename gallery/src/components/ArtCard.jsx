@@ -6,7 +6,7 @@ export default function ArtCard({ art }) {
   if (!art) return null; // ✅ Prevent crash if art is undefined
 
   return (
-    <div className="bg-white rounded-lg shadow p-3 hover:shadow-lg transition-all">
+    <div className="bg-white rounded-lg shadow p-3 hover:shadow-lg hover:bg-amber-500 transition-all duration-300">
       <Link to={`/art/${art.id}`}>
         <div className="h-48 w-full bg-gray-100 flex items-center justify-center overflow-hidden rounded">
           {art.image ? (
